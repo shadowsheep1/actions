@@ -1,5 +1,10 @@
 name: Actions to setup environment for all workflows
 description: 'This action collects the steps to setup any job'
+inputs:
+  use-cache:
+    description: 'Whether to use cache'
+    required: true
+    default: 'false'
 runs:
   using: "composite"
   steps:
@@ -10,6 +15,7 @@ runs:
         cache: yarn
     - id: cache-api-client-definitions
       uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+      if: ${{ inputs.use-cache == 'true' }}
       with:
         path: 'definitions'
         key: ${{ runner.os }}-definitions-${{ hashFiles('package.json') }}
@@ -17,6 +23,7 @@ runs:
           ${{ runner.os }}-definitions-
     - id: cache-locales
       uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+      if: ${{ inputs.use-cache == 'true' }}
       with:
         path: 'locales'
         key: ${{ runner.os }}-locales-${{ hashFiles('locales/**/index.yml') }}
@@ -24,6 +31,7 @@ runs:
           ${{ runner.os }}-locales-
     - id: cache-xstate
       uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+      if: ${{ inputs.use-cache == 'true' }}
       with:
         path: 'ts/**/xstate/machine.typegen.ts'
         key: ${{ runner.os }}-xstate-${{ hashFiles('ts/**/xstate/machine.ts') }}

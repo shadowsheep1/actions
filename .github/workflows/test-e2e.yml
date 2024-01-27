@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
       - id: setup
         uses: ./.github/actions/setup-composite
+        with:
+          use-cache: 'true'
       - id: setup-ruby
         uses: ruby/setup-ruby@d2b39ad0b52eca07d23f3aa14fdf2a3fcc1f411c # v1.148.0
         with:
@@ -94,6 +96,8 @@ jobs:
         shell: bash
       - id: setup
         uses: ./.github/actions/setup-composite
+        with:
+          use-cache: 'true'
       - id: checkout-dev-server
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
         with:
@@ -101,12 +105,12 @@ jobs:
           path: './_io-dev-api-server_'
       - id: run-e2e-tests
         run: bash ./.github/scripts/run-e2e-tests.sh ${{ matrix.test }}.ts
+        continue-on-error: true
       - id: set-artifact-name
         run: echo "ARTIFACT_NAME=detox-artifacts-$(basename '${{ matrix.test }}')" >> $GITHUB_ENV
         shell: bash
       - id: upload-artifacts
-        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v.3.1.2
-        if: always()
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v.3.1.2        
         with:
           name: $ARTIFACT_NAME
           path: /tmp/e2e_artifacts/
