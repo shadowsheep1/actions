@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebviewComponent tests snapshot for component 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  testID="overlayComponent"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "bottom": 0,
+          "inset": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        },
+        Object {
+          "backgroundColor": "rgba(255,255,255,0.7)",
+          "opacity": 1,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "height": 100,
+            "justifyContent": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      <ActivityIndicator
+        size="large"
+        testID="refreshIndicator"
+      />
+      <View
+        style={
+          Object {
+            "padding": 24,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          color="bluegrey"
+          defaultColor="bluegrey"
+          defaultWeight="Regular"
+          font="TitilliumWeb"
+          fontStyle={
+            Object {
+              "fontSize": 16,
+              "lineHeight": 24,
+            }
+          }
+          style={
+            Array [
+              Object {
+                "textAlign": "center",
+              },
+              Object {
+                "fontSize": 16,
+                "lineHeight": 24,
+              },
+              Object {
+                "color": "#475A6D",
+                "fontFamily": "Titillium Web",
+                "fontStyle": "normal",
+                "fontWeight": "400",
+              },
+            ]
+          }
+          weight="Regular"
+        >
+          Wait a few seconds..
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "zIndex": 0,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <RNCWebView
+        allowsInlineMediaPlayback={true}
+        androidCameraAccessDisabled={true}
+        androidMicrophoneAccessDisabled={true}
+        cacheEnabled={true}
+        injectedJavaScriptBeforeContentLoadedForMainFrameOnly={true}
+        injectedJavaScriptForMainFrameOnly={true}
+        javaScriptEnabled={true}
+        mediaPlaybackRequiresUserAction={true}
+        messagingEnabled={false}
+        onContentProcessDidTerminate={[Function]}
+        onHttpError={[Function]}
+        onLoadingError={[Function]}
+        onLoadingFinish={[Function]}
+        onLoadingProgress={[Function]}
+        onLoadingStart={[Function]}
+        onMessage={[Function]}
+        onShouldStartLoadWithRequest={[Function]}
+        source={
+          Object {
+            "uri": "https://google.com",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "overflow": "hidden",
+            },
+            Object {
+              "backgroundColor": "#ffffff",
+            },
+            Object {
+              "flex": 1,
+            },
+          ]
+        }
+        textInteractionEnabled={true}
+        useSharedProcessPool={true}
+      />
+    </View>
+  </View>
+</View>
+`;

@@ -1,0 +1,41 @@
+name: Actions to setup environment for all workflows
+description: 'This action collects the steps to setup any job'
+runs:
+  using: "composite"
+  steps:
+    - id: setup-node
+      uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
+      with:
+        node-version-file: '.node-version'
+        cache: yarn
+    - id: cache-api-client-definitions
+      uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+      with:
+        path: 'definitions'
+        key: ${{ runner.os }}-definitions-${{ hashFiles('package.json') }}
+        restore-keys: |
+          ${{ runner.os }}-definitions-
+    - id: cache-locales
+      uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+      with:
+        path: 'locales'
+        key: ${{ runner.os }}-locales-${{ hashFiles('locales/**/index.yml') }}
+        restore-keys: |
+          ${{ runner.os }}-locales-
+    - id: cache-xstate
+      uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+      with:
+        path: 'ts/**/xstate/machine.typegen.ts'
+        key: ${{ runner.os }}-xstate-${{ hashFiles('ts/**/xstate/machine.ts') }}
+        restore-keys: |
+          ${{ runner.os }}-xstate-
+    - id: install-packages
+      run: yarn install --frozen-lockfile
+      shell: bash
+    - id: generate-api-client
+      run: yarn generate
+      shell: bash
+      if: | 
+        steps.cache-api-client-definitions.outputs.cache-hit != 'true' 
+        || steps.cache-locales.outputs.cache-hit != 'true'
+        || steps.cache-xstate.outputs.cache-hit != 'true'

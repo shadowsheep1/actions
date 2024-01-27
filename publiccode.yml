@@ -1,0 +1,99 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+name: IO
+logo: "img/app-logo.svg"
+releaseDate: '2024-01-17'
+url: 'https://github.com/pagopa/io-app'
+applicationSuite: IO
+landingURL: 'https://io.italia.it/'
+softwareVersion: 2.51.0-rc.1
+developmentStatus: beta
+softwareType: standalone/mobile
+roadmap: 'https://io.italia.it/'
+platforms:
+  - ios
+  - android
+categories:
+  - digital-citizenship
+maintenance:
+  type: internal
+  contacts:
+    - name: Matteo Boschi
+      email: matteo.boschi@pagopa.it
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: PagoPA S.p.A.
+  repoOwner: https://www.pagopa.it/
+intendedAudience:
+  scope:
+    - government
+    - local-authorities
+    - welfare
+    - society
+  countries:
+    - it
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - it
+    - en
+it:
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    spid: true
+    pagopa: true
+    cie: true
+    anpr: true
+  conforme:
+    lineeGuidaDesign: true
+    modelloInteroperabilita: true
+    misureMinimeSicurezza: true
+    gdpr: true
+  riuso:
+    codiceIPA: PCM
+description:
+  it:
+    genericName: Mobile Application
+    shortDescription: IO è l'app dei servizi pubblici
+    longDescription: >
+      ### Cos'è la Cittadinanza Digitale?
+
+
+      La Cittadinanza Digitale ha l'obiettivo di portare il cittadino al  centro
+      dei servizi erogati dalle pubbliche amministrazioni italiane.
+
+
+      Il progetto si estende su due linee:
+
+
+      - la costruzione di una piattaforma di componenti che abilitano lo
+      sviluppo di servizi digitali incentrati sul cittadino
+
+      - un'interfaccia del cittadino per gestire i propri dati e il proprio
+      profilo di cittadino digitale
+
+
+      ### Cos'è l'app mobile della Cittadinanza Digitale?
+
+
+      L'app mobile della Cittadinanza Digitale è un'applicazione mobile nativa
+      per iOS e Android con duplice scopo:
+
+
+      - essere un interfaccia per il cittadino verso i propri dati e il proprio
+      profilo di cittadino digitale
+
+      - fungere da _reference implementation_ delle integrazioni con la
+      piattaforma di Cittadinanza Digitale
+    documentation: 'https://github.com/pagopa/io-app'
+    features:
+      - Messaggi
+      - Pagamenti
+      - Documenti
+      - Notifiche
+      - Notizie
+    awards:
+      - XXVII edizione del Premio Compasso d'Oro
