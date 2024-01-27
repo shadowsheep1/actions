@@ -36,7 +36,7 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
-      - id: install-detox
+      - id: install-wix
         run: |
           brew tap wix/brew
           brew install applesimutils
