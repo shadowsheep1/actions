@@ -36,7 +36,7 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
-      - id: install-wix
+      - id: install-applesimutils
         run: |
           brew tap wix/brew
           brew install applesimutils
@@ -78,7 +78,7 @@ jobs:
           - "ts/features/euCovidCert/__e2e__/euCovidCertRevoked.e2e"
           - "ts/features/wallet/onboarding/__e2e__/creditCardOnboarding.e2e"
     steps:
-      - id: install-wix
+      - id: install-applesimutils
         run: |
           brew tap wix/brew
           brew install applesimutils
